@@ -1,0 +1,52 @@
+<ion-view view-title="Clue">
+    <div class="clue">
+        <ion-header-bar class="row infoRow bar bar-subheader ">
+            <div class="col">
+                <strong>${{currentQuestion.value}}</strong>
+            </div>
+            <div class="col">
+                <span class="pull-right">{{currentQuestion.airdate | amDateFormat:'MMM Do YYYY'}}</span>
+            </div>
+        </ion-header-bar>
+       <ion-content class="padding">
+            <h3>{{currentQuestion.category.title}}</h3>
+            <div class="card">
+                <div class="item item-text-wrap currentQuestion">
+                    <span>{{currentQuestion.question}} &nbsp;</span>
+                </div>
+                <div class="item item-divider currentAnswer" ng-show="currentAnswer.length > 0" >
+                    <span ng-bind-html="currentAnswer"></span>
+                </div>
+            </div>
+            <p class="currentAnswer"></p>
+
+            <button class="button button-block button-calm" ng-show="answerBtn" ng-click="showAnswer()">Show Answer</button>
+            <div class="button-bar"> 
+                <button class="button button-block button-stable icon-right ion-checkmark-circled" ng-hide="answerBtn" ng-click="nextAnswer(true)">Correct!</button>
+                <button class="button button-block button-stable icon-right ion-close-circled" ng-hide="answerBtn" ng-click="nextAnswer(false)">Wrong</button>
+           </div>
+            <div class="row" ng-hide="answerBtn">
+                <div class="col col-80">
+                    Continue with questions from <strong class="cap">{{currentQuestion.category.title}}</strong>
+                    <em ng-if="questions.length >= 1">({{questions.length -1}} Clues Remaining)</em>
+                    <em ng-if="questions.length == 0">({{currentQuestion.category.clues_count -1}} Clues Remaining)</em>
+                </div>
+                <div class="col">
+                    <label class="toggle toggle-calm">
+                        <input type="checkbox" ng-model="$parent.continueCategory" />
+                        <div class="track">
+                            <div class="handle"></div>
+                        </div>
+                    </label>
+                </div>
+           
+            </div>       
+        </ion-content>
+        
+    </div>
+
+    <div class="bar bar-footer">
+        <div>Current Total: ${{totalDollars}}</div>
+    </div>
+    
+</ion-view>

@@ -1,0 +1,51 @@
+/* Empty. Add your own CSS if you like */
+@-webkit-keyframes fade-in{
+from{
+    opacity:0;
+    top:-5px;
+}
+to{
+    opacity:1;
+    top:0;
+}
+}
+
+
+.pull-right{
+    float:right;   
+}
+.pull-left{
+    float:left;   
+}
+
+.infoRow{
+    background:#f4f4f4;
+    border-bottom:1px solid #ccc;
+}
+
+.cap{
+    text-transform: capitalize;   
+}
+
+.clue h3{
+    text-transform: capitalize;
+    padding:10px 0;
+    text-align: center;
+}
+
+.currentQuestion{
+    font-size:20px;
+    line-height: 30px;
+    text-align: center;
+}
+.currentAnswer{
+    line-height: 30px;
+    font-size: 20px;
+    text-transform: capitalize;
+    text-align: center;   
+}
+.currentAnswer span{
+    -webkit-animation:fade-in 1s;  
+    position:relative;
+}
+
